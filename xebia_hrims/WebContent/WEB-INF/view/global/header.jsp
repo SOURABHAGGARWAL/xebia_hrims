@@ -1,5 +1,5 @@
 <div style="vertical-align: top; margin: 10px 10px 10px 10px;">
-	<img width="200px;" height="50px;" src="images/logo_xebia.jpg">
+	<img width="200px;" height="50px;" src="/xebia_hrims/images/logo_xebia.jpg">
 </div>
 
 <nav role="navigation" class="navbar navbar-default">
@@ -13,14 +13,15 @@
 	</div>
 	<div id="navbarCollapse" class="collapse navbar-collapse">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="dashboard.do" style="margin-right: 20px;">Home</a></li>
-			<li><a href="personaldetails.do">My Profile</a></li>
+			<li class="active"><a href="/xebia_hrims/dashboard.do"
+				style="margin-right: 20px;">Home</a></li>
+			<li><a href="/xebia_hrims/my-profile/personaldetails.do">My Profile</a></li>
 			<li><a href="#">My Attendance</a></li>
-			<li class="dropdown">
-			<a data-toggle="dropdown" class="dropdown-toggle" href="#">Leaves <b class="caret"></b></a>
+			<li class="dropdown"><a data-toggle="dropdown"
+				class="dropdown-toggle" href="#">Leaves <b class="caret"></b></a>
 				<ul role="menu" class="dropdown-menu">
-					<li><a href="applyLeave.do">Apply Leave</a></li>
-					<li><a href="#">Cancel Leave</a></li>
+					<li><a href="/xebia_hrims/lms/leaveForm.do">Apply Leave</a></li>
+					<li><a href="/xebia_hrims/lms/cancleLeave.do">Cancel Leave</a></li>
 				</ul></li>
 		</ul>
 		<form role="search" class="navbar-form navbar-left">

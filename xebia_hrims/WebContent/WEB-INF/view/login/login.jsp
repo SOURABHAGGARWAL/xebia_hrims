@@ -18,11 +18,11 @@
 	<div class="container">
 		<form action="login.do" method="get" role="form"
 			style="max-width: 360px; margin: 0px auto;">
-			<h2 class="form-signin-heading text-center">Please sign in</h2>
+			<h2 class="form-signin-heading text-center">Sign In</h2>
 			<input type="userid" class="form-control" placeholder="User ID"
-				required="" name="userid" id="userid" autofocus=""> <br /> <input
-				type="password" name="password" id="password" class="form-control"
-				placeholder="Password" required="">
+				required="" name="userid" id="userid" autofocus=""> <br />
+			<input type="password" name="password" id="password"
+				class="form-control" placeholder="Password" required="">
 			<div class="checkbox">
 				<label> <input type="checkbox" value="remember-me">
 					Remember me
@@ -30,6 +30,7 @@
 			</div>
 			<button class="btn btn-lg btn-primary btn-block" type="submit"
 				value="login">Sign in</button>
+			<div style="color: red;">${errormessage}</div>
 		</form>
 	</div>
 

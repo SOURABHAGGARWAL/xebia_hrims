@@ -8,18 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "leaves")
-public class Leaves {
+@Table(name = "role")
+public class Role {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@Column(name = "type")
+	@Column(name = "type", nullable = false)
 	private String type;
 
-	@Column(name = "name")
-	private String name;
+	@Column(name = "description", nullable = true)
+	private String description;
 
 	public int getId() {
 		return id;
@@ -29,8 +30,8 @@ public class Leaves {
 		return type;
 	}
 
-	public String getName() {
-		return name;
+	public String getDescription() {
+		return description;
 	}
 
 	public void setId(int id) {
@@ -41,8 +42,8 @@ public class Leaves {
 		this.type = type;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

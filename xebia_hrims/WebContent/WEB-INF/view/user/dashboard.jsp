@@ -15,7 +15,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="../global/header.jsp"></jsp:include>
 
 	<div style="float:left;;min-width:50%">
 		<div class="bs-example">
@@ -70,6 +70,6 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="../global/footer.jsp"></jsp:include>
 </body>
 </html>
