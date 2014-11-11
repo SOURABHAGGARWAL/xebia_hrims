@@ -16,6 +16,52 @@
 </head>
 <body>
 	<jsp:include page="../global/header.jsp"></jsp:include>
+	
+		<div style="float:left;min-width:50%">
+		<div class="bs-example">
+		    <div class="panel panel-default">
+				<div class="panel-heading">My Leaves</div>
+				<div class="panel-body">
+					<p>My Leaves Status.</p>
+				</div>
+				<div class="list-group">
+					<a href="#" class="list-group-item">Diwali Celebration<span class="badge">12-JUNE-2014</span>
+					</a>
+					<a href="#" class="list-group-item">Birthday Celebration<span class="badge">12-AUGUST-2014</span>
+					</a>
+					<a href="#" class="list-group-item">Organization Day<span class="badge">12-JULY-2014</span>
+					</a>  
+					<a href="#" class="list-group-item">New Year Party<span class="badge">12-SEPTEMBER-2014</span>
+					</a>
+					<a href="#" class="list-group-item">Christmas Party<span class="badge">28-OCTOBER-2014</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div style="float:left;min-width:50%">
+		<div class="bs-example">
+		    <div class="panel panel-default">
+				<div class="panel-heading">My Attendance</div>
+				<div class="panel-body">
+					<p>My Attendance Record.</p>
+				</div>
+				<div class="list-group">
+					<a href="#" class="list-group-item">Diwali Celebration<span class="badge">12-JUNE-2014</span>
+					</a>
+					<a href="#" class="list-group-item">Birthday Celebration<span class="badge">12-AUGUST-2014</span>
+					</a>
+					<a href="#" class="list-group-item">Organization Day<span class="badge">12-JULY-2014</span>
+					</a>  
+					<a href="#" class="list-group-item">New Year Party<span class="badge">12-SEPTEMBER-2014</span>
+					</a>
+					<a href="#" class="list-group-item">Christmas Party<span class="badge">28-OCTOBER-2014</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div style="float:left;;min-width:50%">
 		<div class="bs-example">
@@ -35,10 +81,6 @@
 					<a href="#" class="list-group-item">Gurinder Singh <span class="badge">12-SEPTEMBER-2014</span>
 					</a>
 					<a href="#" class="list-group-item">Sourabh Aggarwal <span class="badge">28-OCTOBER-2014</span>
-					</a>
-					<a href="#" class="list-group-item">Parminder Singh <span class="badge">26-OCTOBER-2014</span>
-					</a>
-					<a href="#" class="list-group-item">Rajan Singhal <span class="badge">12-OCTOBER-2014</span>
 					</a>
 				</div>
 			</div>
@@ -62,14 +104,11 @@
 					</a>
 					<a href="#" class="list-group-item">Christmas Party<span class="badge">28-OCTOBER-2014</span>
 					</a>
-					<a href="#" class="list-group-item">Holi Celebration<span class="badge">26-OCTOBER-2014</span>
-					</a>
-					<a href="#" class="list-group-item">Guru Purav<span class="badge">12-OCTOBER-2014</span>
-					</a>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<jsp:include page="../global/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.xebia.hrims.model;
+package com.xebia.hrims.model.leave;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,15 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "leavebalance")
-public class LeaveBalance {
+@Table(name = "emp_leave_balance")
+public class Balance {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	private int id;
+	@Column(name = "id", nullable = false)
+	private Integer id;
 
-	@Column(name = "empid")
+	@Column(name = "")
 	private int empId;
 
 	@Column(name = "leaveid")

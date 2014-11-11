@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xebia.hrims.business.leaves.ILeavesBusiness;
-import com.xebia.hrims.model.EmloyeeLeaveInformation;
-import com.xebia.hrims.model.Leaves;
+import com.xebia.hrims.model.leave.Balance;
+import com.xebia.hrims.model.leave.Leave;
 import com.xebia.hrims.service.leaves.ILeavesService;
 
 @Service("leavesService")
@@ -17,7 +17,7 @@ public class LeavesServiceImpl implements ILeavesService {
 	private ILeavesBusiness leavesBusiness;
 
 	@Override
-	public List<Leaves> getLeavesType() {
+	public List<Leave> getLeavesType() {
 		return leavesBusiness.leavesType();
 	}
 
@@ -33,8 +33,8 @@ public class LeavesServiceImpl implements ILeavesService {
 	}
 
 	@Override
-	public List<EmloyeeLeaveInformation> getLeaveInfo() {
-		List<EmloyeeLeaveInformation> leaveInfo = null;
+	public List<Balance> getLeaveInfo() {
+		List<Balance> leaveInfo = null;
 		leaveInfo = leavesBusiness.employeeLeaveInfo();
 		return leaveInfo;
 	}

@@ -9,9 +9,8 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.xebia.hrims.model.EmloyeeLeaveInformation;
-import com.xebia.hrims.model.LeaveBalance;
-import com.xebia.hrims.model.Leaves;
+import com.xebia.hrims.model.leave.Balance;
+import com.xebia.hrims.model.leave.Leave;
 
 @Repository("leavesDao")
 public class LeavesDao {
@@ -24,11 +23,11 @@ public class LeavesDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Leaves> leaveslist() {
+	public List<Leave> leaveslist() {
 		Session session = getCurrentSession();
 		session.beginTransaction();
-		List<Leaves> leaves = (List<Leaves>) session.createCriteria(
-				Leaves.class).list();
+		List<Leave> leaves = (List<Leave>) session.createCriteria(
+				Leave.class).list();
 		session.close();
 		return leaves;
 
@@ -38,10 +37,10 @@ public class LeavesDao {
 		Session session = getCurrentSession();
 		session.beginTransaction();
 		Query query = session
-				.createQuery("from com.xebia.hrims.model.LeaveBalance where empid = ? and leaveid = ?");
+				.createQuery("from com.xebia.hrims.model.leave.Balance where empid = ? and leaveid = ?");
 		query.setInteger(0, empid);
 		query.setInteger(1, leaveid);
-		int leaveleft = ((LeaveBalance) query.list().get(0)).getLeft();
+		int leaveleft = ((Balance) query.list().get(0)).getLeft();
 		session.close();
 		return leaveleft;
 	}
@@ -52,7 +51,7 @@ public class LeavesDao {
 		Session session = getCurrentSession();
 		Transaction tx = session.beginTransaction();
 		Query query = session
-				.createQuery("update com.xebia.hrims.model.LeaveBalance set"
+				.createQuery("update com.xebia.hrims.model.leave.Balance set"
 						+ " leavesleft = ?  where empid = ? and leaveid = ?");
 		query.setInteger(0, daysLeft);
 		query.setInteger(1, userid);
@@ -71,8 +70,8 @@ public class LeavesDao {
 		}
 		Session session = getCurrentSession();
 		Transaction tx = session.beginTransaction();
-		EmloyeeLeaveInformation empleaveinfo = new EmloyeeLeaveInformation();
-		empleaveinfo.setEmpId(1); // ToDo Get UserId From Session
+		Leave leave = new Leave();
+/*		leave.setEmpId(1); // ToDo Get UserId From Session
 		empleaveinfo.setLeaveId(Integer.parseInt(leaveInfo[0]));
 		empleaveinfo.setStartDate(leaveInfo[1]);
 		empleaveinfo.setStartDay(leaveInfo[2]);
@@ -83,7 +82,7 @@ public class LeavesDao {
 		empleaveinfo.setNotifyTo(leaveInfo[7]);
 		empleaveinfo.setHrStatus("pending");
 		empleaveinfo.setManagerStatus("pending");
-		session.save(empleaveinfo);
+		session.save(empleaveinfo);*/
 		tx.commit();
 		return result;
 	}
@@ -94,22 +93,15 @@ public class LeavesDao {
 		return result - numberOfDays;
 	}
 
-	public List<EmloyeeLeaveInformation> getEmployeeLeavesInfo() {
-		System.out.println("inside getEmployeeLeavesInfo");
+	public List<Balance> getEmployeeLeavesInfo() {
 		Session session = getCurrentSession();
 		session.beginTransaction();
 		Query query = session
-				.createQuery("from com.xebia.hrims.model.EmloyeeLeaveInformation where empid = ?");
+				.createQuery("from com.xebia.hrims.model.leave.Balance where empid = ?");
 		query.setInteger(0, 1);
-		List<EmloyeeLeaveInformation> employeeleavesinfolist = (List<EmloyeeLeaveInformation>) query
-				.list();
-
-		for (EmloyeeLeaveInformation emp : employeeleavesinfolist) {
-			System.out.println(emp.getLeaveId() + " " + emp.getHandoverTo()
-					+ " " + emp.getHrStatus() + " " + emp.getManagerStatus());
-		}
+		List<Balance> empLeaveList = (List<Balance>) query.list();
 		session.close();
-		return employeeleavesinfolist;
+		return empLeaveList;
 	}
 
 	public String getLeaveType(int leaveid){
@@ -117,10 +109,10 @@ public class LeavesDao {
 		Session session = getCurrentSession();
 		session.beginTransaction();
 		Query query = session
-				.createQuery("from com.xebia.hrims.model.Leaves where leaveid = ?");
+				.createQuery("from com.xebia.hrims.model.Leave where leaveid = ?");
 		query.setInteger(0, leaveid);
 		
-		leaveType = ((Leaves)query.list().get(0)).getType();
+		//leaveType = ((Leave)query.list().get(0)).getTypeOfLeave();
 		return leaveType;
 	}
 }

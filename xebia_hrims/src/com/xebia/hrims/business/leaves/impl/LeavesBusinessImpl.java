@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.xebia.hrims.business.leaves.ILeavesBusiness;
 import com.xebia.hrims.dao.LeavesDao;
-import com.xebia.hrims.model.EmloyeeLeaveInformation;
-import com.xebia.hrims.model.Leaves;
+import com.xebia.hrims.model.leave.Balance;
+import com.xebia.hrims.model.leave.Leave;
 
 @Service("leavesBusiness")
 public class LeavesBusinessImpl implements ILeavesBusiness {
@@ -18,7 +18,7 @@ public class LeavesBusinessImpl implements ILeavesBusiness {
 	private LeavesDao leavesdao;
 
 	@Override
-	public List<Leaves> leavesType() {
+	public List<Leave> leavesType() {
 		return leavesdao.leaveslist();
 	}
 
@@ -27,14 +27,14 @@ public class LeavesBusinessImpl implements ILeavesBusiness {
 
 		List<String> employeeleave = new ArrayList<String>();
 		int id = 1;// Todo get userid through session
-		List<Leaves> leaves = leavesdao.leaveslist();
-		for (Leaves leave : leaves) {
-			String leaveinfo = leave.getId() + "," + leave.getType() + ","
+/*		List<Balance> leaves = leavesdao.leaveslist();
+		for (Balance leave : leaves) {
+			String leaveinfo = leave.getId() + "," + leave.getTypeOfLeave() + ","
 					+ leave.getName() + ","
 					+ leavesdao.leavesInfo(id, leave.getId());
 			employeeleave.add(leaveinfo);
 
-		}
+		}*/
 		return employeeleave;
 	}
 
@@ -68,8 +68,8 @@ public class LeavesBusinessImpl implements ILeavesBusiness {
 	}
 
 	@Override
-	public List<EmloyeeLeaveInformation> employeeLeaveInfo() {
-		List<EmloyeeLeaveInformation> list = leavesdao.getEmployeeLeavesInfo();
+	public List<Balance> employeeLeaveInfo() {
+		List<Balance> list = leavesdao.getEmployeeLeavesInfo();
 
 		return list;
 	}

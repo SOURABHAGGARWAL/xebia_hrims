@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.xebia.hrims.model.employee.InitLogin;
 import com.xebia.hrims.service.leaves.ILeavesService;
 import com.xebia.hrims.service.login.ILoginService;
 
@@ -37,16 +38,22 @@ public class HrimsController {
 			@RequestParam String password) {
 		boolean result = false;
 		result = loginservice.isValidUser(userid, password);
+		
 		if (!result) {
-			return new ModelAndView("login", "errormessage",
-					"UserId Password Not Matched");
+			return new ModelAndView("login/login", "errormessage", "UserId & Password Are Not Correct");
 		}
+		
+		request.setAttribute("login", loginservice.getLogin(userid));
+		
 		return new ModelAndView("redirect:/dashboard.do");
 	}
 
 	@RequestMapping(value = "dashboard", method = RequestMethod.GET)
 	public @ResponseBody ModelAndView dashboard(HttpServletRequest request,
 			HttpServletResponse response) {
+		
+		InitLogin login = (InitLogin) request.getAttribute("login");
+		//System.out.println(login.getEmp_id());
 		return new ModelAndView("user/dashboard");
 	}
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.xebia.hrims.model.EmloyeeLeaveInformation;
+import com.xebia.hrims.model.leave.Balance;
 import com.xebia.hrims.service.leaves.ILeavesService;
 
 @Controller
@@ -49,7 +49,7 @@ public class LmsHrimsController {
 	@RequestMapping(value = "cancleLeave", method = RequestMethod.GET)
 	public @ResponseBody ModelAndView cancleLeave(HttpServletRequest request,
 			HttpServletResponse response) {
-		List<EmloyeeLeaveInformation> leaveInfo = leavesservice.getLeaveInfo();
+		List<Balance> leaveInfo = leavesservice.getLeaveInfo();
 		return new ModelAndView("leave/cancel", "leaveinfo", leaveInfo);
 	}
 
